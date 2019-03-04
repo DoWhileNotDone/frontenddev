@@ -7,6 +7,7 @@ var/cache/*
 var/logs/*.log
 var/logs/*
 !var/logs/.keep
+var/tmp
 node_modules/
 public/css/*
 !public/css/.keep

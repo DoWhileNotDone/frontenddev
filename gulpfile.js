@@ -1,51 +1,64 @@
 // Include gulp
 var gulp = require('gulp');
 // Include plugins
-var typescript = require('gulp-typescript');
-var sourcemaps = require('gulp-sourcemaps');
-var babel = require('gulp-babel');
-var rename = require('gulp-rename');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
+//var typescript = require('gulp-typescript');
+//var sourcemaps = require('gulp-sourcemaps');
+//var babel = require('gulp-babel');
+//var rename = require('gulp-rename');
+//var concat = require('gulp-concat');
+//var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 
 //https://gist.github.com/demisx/beef93591edc1521330a
-var paths = {
+var config = {
   dirs: {
-    build: 'public'
+    build: 'public',
+    source: 'resources',
+    tmp: 'var/tmp',
+    javascript: 'js',
+    typescript: 'ts',
+    sass: 'scss',
+    css: 'css',
   },
-  typescript: 'resources/typescript/*.ts',
-  sass: 'resources/scss/*.scss'
+  extensions: {
+    javascript: '.js',
+    typescript: '.ts',
+    scss: '.scss',
+    css: '.css',
+  }
 };
 
-// Transpile, Concatenate & Minify Typescript
+// Handle Javascript
+// Move source to public
 gulp.task('scripts', function () {
-    return gulp.src(paths.typescript)
-      .pipe(sourcemaps.init())
-      .pipe(concat("main.ts"))
-      .pipe(typescript({
-          noImplicitAny: true,
-          outFile: 'main.js'
-      }))
-      .pipe(babel())
-      .pipe(rename({suffix: '.min'}))
-      .pipe(uglify())
-      .pipe(sourcemaps.write("."))
-      .pipe(gulp.dest(paths.dirs.build + '/js'));
+
+    let { source, javascript, build } = config.dirs;
+    let { javascript: jsext } = config.extensions;
+
+    console.log(`${source}/${javascript}/*${jsext}`);
+
+    return gulp.src(`${source}/${javascript}/*${jsext}`)
+      .pipe(gulp.dest(`${build}/${javascript}/`));
 });
 
 // Compile and Concatenate CSS
 sass.compiler = require('node-sass');
 
 gulp.task('sass', function () {
-  return gulp.src(paths.sass)
+
+  let { source, sass: sassdir, build, css } = config.dirs;
+  let { scss } = config.extensions;
+
+  return gulp.src(`${source}/${sassdir}/*${scss}`)
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(paths.dirs.build +'/css'));
+    .pipe(gulp.dest(`${build}/${css}/`));
 });
 
 //Watches
 gulp.task('watch:styles', function () {
-  gulp.watch(paths.sass, gulp.series('sass'));
+  let { source, sass: sassdir } = config.dirs;
+  let { scss } = config.extensions;
+  gulp.watch(`${source}/${sassdir}/*${scss}`, gulp.series('sass'));
 });
 
 gulp.task('watch', gulp.parallel('watch:styles'));
