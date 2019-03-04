@@ -1,0 +1,51 @@
+{
+    "name": "davegthemighty/frontenddev",
+    "description": "Experimenting with Front End Technologies. Likely to be a shambles.",
+    "type": "project",
+    "keywords": [
+        "slim",
+        "react",
+        "rediux",
+        "typescript",
+        "api"
+    ],
+    "authors": [
+        {
+            "name": "Dave Gillard",
+            "email": "davegthemighty@hotmail.com"
+        }
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "bshaffer/oauth2-server-php": "^1.10",
+        "illuminate/database": "~5.1",
+        "monolog/monolog": "^1.17",
+        "rakit/validation": "^1.1",
+        "robmorgan/phinx": "^0.9.2",
+        "slim/slim": "^3.11",
+        "slim/twig-view": "^2.4",
+        "tuupola/slim-basic-auth": "^3.2",
+        "vlucas/phpdotenv": "^2.0"
+    },
+    "require-dev": {
+        "overtrue/phplint": "^1.0",
+        "phpunit/phpunit": "^7.3",
+        "squizlabs/php_codesniffer": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "FrontEndDev\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FrontEndDev\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "start": "php -S 0.0.0.0:8080 -t public",
+        "test": "phpunit"
+    }
+}
