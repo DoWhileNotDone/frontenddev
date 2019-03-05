@@ -1,4 +1,7 @@
-import { tag } from './html.js'
+import { Employee } from './Employee.js';
+import { tag } from './html.js';
 
-const h1 = tag('h1', ' Hello Modules!')
-document.body.appendChild(h1)
+const employee = new Employee('Jimmy Jim');
+
+const h1 = tag('h1', employee.describe());
+document.body.appendChild(h1);
