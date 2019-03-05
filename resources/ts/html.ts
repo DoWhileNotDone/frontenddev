@@ -1,4 +1,4 @@
-export function tag (tag, text) {
+export function tag (tag: any, text: string) {
   const el = document.createElement(tag)
   el.textContent = text
 

@@ -66,7 +66,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
     nvm install node
     nvm use node
-    npm install -g gulp
+    npm install -g gulp gulp-cli typescript
   SHELL
 
   # Install Yarn

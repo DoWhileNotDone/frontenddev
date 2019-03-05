@@ -36,7 +36,7 @@
   </target>
   <target name="run-gulp" >
     <exec executable="gulp">
-      <arg line="vagrant"/>
+      <arg line="default"/>
     </exec>
   </target>
 

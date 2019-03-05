@@ -1,17 +1,16 @@
-import { Person } from './Person.js';
+import { Person } from './Person';
 
 export class Employee extends Person {
-    constructor(name, role='grunt') {
+    constructor(name: string, public _role: string = 'grunt') {
         super(name);
-        this._role = role;
     }
     describe() {
         return `${super.describe()} (${this.role})`;
     }
-    get role() {
+    get role(): string {
       return this._role;
     }
-    set role(role = '') {
+    set role(role: string) {
       this._role = role;
     }
 }

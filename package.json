@@ -19,24 +19,23 @@
     "url": "https://github.com/davegthemighty/frontenddev/issues"
   },
   "homepage": "https://github.com/davegthemighty/frontenddev#readme",
-  "dependencies": {
-    "bootstrap": "^4.2.1",
-    "gulp-typescript": "^5.0.0",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.14.7",
-    "sass": "^1.17.0",
-    "typescript": "^3.3.3333"
-  },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
+    "browserify": "^16.2.3",
+    "fancy-log": "^1.3.3",
     "gulp": "^4.0.0",
-    "gulp-babel": "^8.0.0-beta.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.1",
-    "minimist": "^1.2.0"
+    "gulp-typescript": "^5.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1",
+    "gulp-watch-sass": "^1.4.1",
+    "tsify": "^4.0.1",
+    "typescript": "^3.3.3333",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "watchify": "^3.11.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1"
   }
 }
