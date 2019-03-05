@@ -1,5 +1,5 @@
-import { Employee } from './Employee';
-import { tag } from './html';
+import { Employee } from './Employee.js';
+import { tag } from './html.js';
 
 const employee = new Employee('Jimmy Jim');
 

@@ -1,4 +1,4 @@
-import { Person } from './Person';
+import { Person } from './Person.js';
 
 export class Employee extends Person {
     constructor(name: string, public _role: string = 'grunt') {
